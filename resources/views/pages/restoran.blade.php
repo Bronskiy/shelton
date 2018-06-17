@@ -28,9 +28,9 @@
 							<a href="/restoran/{{ $value->food_cat_slug }}">
 								<div class="single-destination overlay">
 									@if ($value->food_cat_photo)
-									<img src="{{ asset('uploads') . '/'.  $value->food_cat_photo }}" alt="{{ $value->food_cat_title }}">
+									<img src="{{ Image::url(asset('uploads') . '/'.  $value->food_cat_photo,263,175,array('crop')) }}" alt="{{ $value->food_cat_title }}" />
 									@else
-									<img src="https://via.placeholder.com/261x163?text={{ $value->food_cat_title }}" alt="{{ $value->food_cat_title }}">
+									<img src="https://via.placeholder.com/263x175?text={{ $value->food_cat_title }}" alt="{{ $value->food_cat_title }}">
 									@endif
 									<div class="hover">
 										<h4 class="name">{{ $value->food_cat_title }}</h4>

@@ -20,14 +20,14 @@ class RoomCategories extends Model {
     protected $dates = ['deleted_at'];
 
     protected $table    = 'roomcategories';
-    
+
     protected $fillable = [
           'room_cat_title',
           'room_cat_slug',
           'room_cat_order',
           'language_id'
     ];
-    
+
 
     public static function boot()
     {
@@ -35,14 +35,19 @@ class RoomCategories extends Model {
 
         RoomCategories::observe(new UserActionsObserver);
     }
-    
+
+    public function room()
+    {
+        return $this->belongsToMany('App\Rooms', 'roomcategory_room', 'room_id', 'roomcategory_id');
+    }
+
     public function language()
     {
         return $this->hasOne('App\Language', 'id', 'language_id');
     }
 
 
-    
-    
-    
+
+
+
 }

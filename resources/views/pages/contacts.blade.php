@@ -1,5 +1,5 @@
 @extends('layouts.default')
-{{-- @section('meta_title', $title) --}}
+@section('meta_title', __('common.contacts'))
 
 @section('content')
 <div class="breadcrumbs overlay" data-stellar-background-ratio="0.7" style="background-image:url('/assets/img/background-rooms.jpg');">
@@ -18,16 +18,6 @@
 <section id="contact-us" class="contact-us section">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <div class="title-line center">
-          <h2>@lang('common.ContactUs')</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2 col-12">
-        @include('includes.form')
-      </div>
       @foreach ($сommonData as $value)
       <div class="col-lg-12">
         <div class="contact">
@@ -54,6 +44,21 @@
           </div>
         </div>
       </div>
+      <div class="col-lg-8">
+          <div class="title-line center">
+            <h3>@lang('common.ContactUs')</h3>
+          </div>
+        @include('includes.form')
+      </div>
+      <div class="col-lg-4">
+          <div class="title-line center">
+            <h3>@lang('common.ContactDetails')</h3>
+          </div>
+          <div class="">
+            {!! $value->common_contact_details !!}
+          </div>
+      </div>
+
       @endforeach
     </div>
   </div>

@@ -90,7 +90,7 @@
 <div class="form-group">
     {!! Form::label('roomcategories_id', 'Категория*', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::select('roomcategories_id', $roomcategories, old('roomcategories_id'), array('class'=>'form-control')) !!}
+        {!! Form::select('roomcategories[]', $roomcategories, old('roomcategories'), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-roomcategories' ]) !!}
 
     </div>
 </div>

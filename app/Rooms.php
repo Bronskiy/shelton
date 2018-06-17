@@ -32,7 +32,6 @@ class Rooms extends Model implements HasMedia
           'room_price_24',
           'room_photo',
           'room_gallery',
-          'roomcategories_id',
           'language_id'
     ];
 
@@ -46,7 +45,7 @@ class Rooms extends Model implements HasMedia
 
     public function roomcategories()
     {
-        return $this->hasOne('App\RoomCategories', 'id', 'roomcategories_id');
+        return $this->belongsToMany('App\RoomCategories', 'roomcategory_room', 'room_id', 'roomcategory_id');
     }
 
     public function language()

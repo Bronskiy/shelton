@@ -24,7 +24,6 @@ class CreateRoomsTable extends Migration {
             $table->string("room_price_24")->nullable();
             $table->string("room_photo")->nullable();
             $table->string("room_gallery")->nullable();
-            $table->integer("roomcategories_id")->references("id")->on("roomcategories");
             $table->integer("language_id")->references("id")->on("language");
             $table->timestamps();
             $table->softDeletes();

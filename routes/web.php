@@ -19,10 +19,10 @@ Route::group(
 	{
 		$lang_prefix = LaravelLocalization::getCurrentLocale();
 		$lang = App\Language::where('lang_name', $lang_prefix)->first();
-		View::share('roomCategories', App\RoomCategories::where('language_id', $lang['id'])->get());
+		View::share('roomCategories', App\RoomCategories::where('language_id', $lang['id'])->orderBy('room_cat_order')->get());
 		View::share('rooms', App\Rooms::where('language_id', $lang['id'])->inRandomOrder()->get());
 		View::share('features', App\Features::where('language_id', $lang['id'])->inRandomOrder()->get());
-		View::share('slider', App\Slider::where('language_id', $lang['id'])->get());
+		View::share('slider', App\Slider::where('language_id', $lang['id'])->orderBy('slider_order', 'asc')->get());
 		View::share('сommonData', App\CommonData::where('language_id', $lang['id'])->get());
 		View::share('foodCategories', App\FoodCategories::where('language_id', $lang['id'])->get());
 		/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
@@ -37,6 +37,7 @@ Route::group(
 			'uses' => 'OnePageController@getDataContact'
 		]);
 		Route::get('/thank-you', 'OnePageController@thankYou');
+		Route::get('/success', 'OnePageController@getSuccess');
 		Route::get('/search', [
 			'lang_id' => $lang['id'],
 			'uses' => 'NewsController@search'
@@ -57,6 +58,14 @@ Route::group(
 			'lang_id' => $lang['id'],
 			'uses' => 'RoomsController@getData'
 		]);
+		Route::post('/order', [
+			'lang_id' => $lang['id'],
+			'uses' => 'RoomsController@roomOrder'
+			]);
+		Route::get('/page/{name?}', [
+			'lang_id' => $lang['id'],
+			'uses' => 'OnePageController@getPageData'
+		]);
 		Route::get('/category/{name?}', [
 			'lang_id' => $lang['id'],
 			'uses' => 'RoomsController@getCategoryData'
@@ -69,10 +78,13 @@ Route::group(
 		Route::post('/spatie/media/remove', 'Admin\SpatieMediaController@destroy')->name('media.remove');
 	});
 
+	Route::get('/test', 'OnePageController@test');
+
 	Route::post('/contacts/store', 'OnePageController@contactsStore');
 	Route::post('/guestbook/store', 'OnePageController@commentsStore');
+	Route::post('/order/store', 'OnePageController@orderStore');
 
-	Route::get('a3login', [
-		'as' => 'a3login',
+	Route::get('shelt1ogin', [
+		'as' => 'shelt1ogin',
 		'uses' => 'Auth\LoginController@showLoginForm'
 	]);

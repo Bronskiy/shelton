@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
+// use Intervention\Image\Facades\Image;
+use Folklore\Image\Facades\Image;
 
 trait FileUploadTrait
 {
@@ -25,7 +26,9 @@ trait FileUploadTrait
                     $filename = time() . '-' . $request->file($key)->getClientOriginalName();
                     $file     = $request->file($key);
                     $image    = Image::make($file);
-                    Image::make($file)->resize(50, 50)->save(public_path('uploads/thumb') . '/' . $filename);
+                  //  Image::make($file)->resize(50, 50)->save(public_path('uploads/thumb') . '/' . $filename);
+                    Image::make($file,array('width' => 50,'height' => 50))->save(public_path('uploads/thumb') . '/' . $filename);
+                    /*
                     $width  = $image->width();
                     $height = $image->height();
                     if ($width > $request->{$key . '_w'} && $height > $request->{$key . '_h'}) {
@@ -39,6 +42,7 @@ trait FileUploadTrait
                             $constraint->aspectRatio();
                         });
                     }
+                    */
                     $image->save(public_path('uploads') . '/' . $filename);
                     // Determine which request's data to use further
                     $requestDataToMerge = $newRequest == null ? $request->all() : $newRequest->all();

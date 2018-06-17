@@ -1,10 +1,3 @@
-/* =====================================
-Template Name: TravelTrek
-Author Name: iThemer
-Author URI: http://ithemer.com/
-Description: TravelTrek is a Travel Agency & Tour Booking HTML5 Template.
-Version:	1.0
-========================================*/
 /*======================================
 [ CSS Table of contents ]
 01. Reset CSS
@@ -63,11 +56,13 @@ body{
 .site-header {
 	position: relative;
 	padding-bottom: 32px;
+	background: #212121;
 }
 /* Topbar */
 .site-header .topbar {
 	background: #212121;
 	padding: 7px 0;
+  border-bottom: 1px solid rgb(151,112,66);
 }
 .site-header .topbar p {
 	color: #959595;
@@ -96,6 +91,7 @@ body{
 }
 .site-header .middle-header{
 	padding:20px 0;
+	color: #dadada;
 }
 /* Logo */
 .site-header .logo{
@@ -137,6 +133,22 @@ body{
 	bottom: -32px;
 }
 /* Main Menu */
+.languages{
+	text-transform: capitalize;
+}
+.languages a{
+	color: #959595;
+	font-weight: 400;
+	font-size: 16px;
+}
+.languages a .flag-icon{
+	margin-right: 7px;
+}
+.languages .dropdown-menu{
+	border-radius: 0px;
+	border: none;
+	background-color: rgb(33, 33, 33);
+}
 .site-header .main-menu {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#977042+0,987041+1,be965d+100 */
 	background: rgb(151,112,66); /* Old browsers */
@@ -487,7 +499,7 @@ body{
 .hero-area .welcome-text h1 {
 	font-size: 60px;
 	color: #fff;
-	text-transform: capitalize;
+	text-transform: uppercase;
 }
 /* Search Form */
 .hero-area .trip-search {
@@ -811,6 +823,9 @@ body{
 /*======================================
    04. About Us CSS
 ========================================*/
+.about-us {
+	padding: 75px 0;
+}
 .about-us .about-left img {
 	width:100%;
 }
@@ -823,6 +838,8 @@ body{
 .about-us .title-line h2 span{
 	display:block;
 }
+.about-us ul,
+.about-us ol,
 .about-us .about-main p {
 	font-size: 16px;
 	font-weight: 300;
@@ -852,6 +869,12 @@ body{
 }
 .about-us .single-skill h4 span {
 	display: block;
+}
+.about-us ul,
+.about-us ol{
+	color: #757575;
+  margin: 0;
+  line-height: 28px;
 }
 /*======================================
    End About Us CSS
@@ -1248,7 +1271,7 @@ body{
 }
 .top-destination .trip-details .left {
 	float: left;
-	width: 70%;
+	width: 65%;
 }
 .top-destination .trip-details .left h4{
 	font-size:18px;
@@ -1269,7 +1292,7 @@ body{
 }
 .top-destination .trip-details .right {
 	float: left;
-	width: 30%;
+	width: 35%;
 	text-align: right;
 }
 .top-destination .trip-details .right p {
@@ -2060,7 +2083,8 @@ body{
 	display: inline-block;
 	margin-right: 10px;
 }
-.blog-area.archive .pagination li a {
+.blog-area.archive .pagination li a,
+.blog-area.archive .pagination .page-link {
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
@@ -2071,10 +2095,13 @@ body{
 	font-weight: 700;
 	border-radius: 3px;
 	font-size: 16px;
+	padding: 0;
 }
 .blog-area.archive .pagination li.active a,
-.blog-area.archive .pagination li:hover a{
+.blog-area.archive .pagination li:hover a,
+.blog-area.archive .page-item.active .page-link{
 	background:rgb(151,112,66);
+	border-color: rgb(151,112,66);
 	color:#fff;
 }
 .blog-area.archive .pagination li.next{}
@@ -2191,20 +2218,38 @@ body{
 .blog-area.single .single-comments .main {
 	overflow: hidden;
 }
+.single-food{
+	padding: 15px 0;
+	margin: 15px 0;
+}
+.top-destination .single-food .food-head,
 .blog-area.single .single-comments .head {
 	float: left;
 	margin-right: 20px;
 	text-align: center;
 	width: 12%;
 }
+.top-destination .single-food .food-head{
+	width: 25%;
+}
+.top-destination .single-food .food-head img,
 .blog-area.single .single-comments .head img {
 	width: 80px;
 	height: 80px;
 	border-radius: 100%;
 }
+.top-destination .single-food .food-details,
 .blog-area.single .single-comments .body {
 	float: left;
 	width: 85%;
+}
+.top-destination .single-food .food-details{
+	width: 69%;
+}
+.food-details span.price{
+	font-weight: 700;
+  color: rgb(151,112,66);
+  float: right;
 }
 .blog-area.single .single-comments .comment-list {
 	margin-top: 30px;
@@ -2254,6 +2299,9 @@ body{
 }
 
 /* Comments Form */
+.comments-form form {
+	display: none;
+}
 .blog-area.single .comments-form {
 	background: #fff;
 	margin-top: 60px;
@@ -2263,7 +2311,11 @@ body{
 	font-size: 25px;
 	margin-bottom: 25px;
 	padding-bottom: 25px;
-	border-bottom: 1px solid #E2E2E2;
+	border-bottom: 2px dashed #E2E2E2;
+}
+.blog-area.single .comments-form h2:hover{
+	color: rgb(151,112,66);
+	cursor: pointer;
 }
 .blog-area.single .form {
 	margin-top: 30px;
@@ -2560,6 +2612,8 @@ body{
 	color:rgb(151,112,66);
 	border-color:rgb(151,112,66);
 }
+
+.sidebar-main .booking .form-group svg.fa-calendar,
 .sidebar-main .booking .form-group i {
 	position: absolute;
 	right: 0;
@@ -2567,6 +2621,7 @@ body{
 	right: 15px;
 	margin-top: 12px;
 }
+
 .sidebar-main .booking .nice-select {
 	width: 100%;
 	border: 2px solid #E9E9E9;
@@ -2585,13 +2640,25 @@ body{
 .sidebar-main .form-group.button{
 	margin-bottom:0px;
 }
+.single-widget.other-trips a:visited.btn{
+	color: #ffffff;
+}
+.single-widget.other-trips a.btn:hover {
+	color: rgb(151,112,66);
+}
+.single-widget.other-trips .btn,
 .sidebar-main .booking .btn {
 	padding: 14px 35px;
 	border:1px solid transparent;
 }
+.single-widget.other-trips .btn:hover,
 .sidebar-main .booking .btn:hover {
 	padding: 14px 35px;
 	border-color:rgb(151,112,66);
+}
+.single-widget.other-trips span.price{
+	font-weight: 700;
+	color: rgb(151,112,66);
 }
 .sidebar-main .datepicker td, .datepicker th {
 	text-align: center;
@@ -3013,7 +3080,7 @@ body{
 	color:rgb(151,112,66);
 }
 .contact-us .contact {
-	margin-top: 50px;
+	margin: 50px 0;
 }
 .contact-us .contact .single-contact {
 	text-align: center;
@@ -3152,13 +3219,16 @@ body{
 .footer .copyright p a{
 	color:rgb(151,112,66);
 }
+.footer .payment-menu,
 .footer .social{
 	float:right;
 }
+.footer .payment-menu li,
 .footer .social li {
 	margin-right: 20px;
 	display: inline-block;
 }
+.footer .payment-menu li:last-child,
 .footer .social li:last-child{
 	margin-right:0px;
 }
@@ -3169,6 +3239,17 @@ body{
 }
 .footer .social li:hover a{
 	color:rgb(151,112,66);
+}
+.footer .payment-logo{
+	float: right;
+	margin-top: 5px;
+}
+.footer .payment-logo img{
+	height: 32px;
+}
+.footer .payment-logo{
+	float: right;
+	margin-top: 5px;
 }
 /* Footer Style 2 */
 .footer.style2 {

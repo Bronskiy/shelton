@@ -22,7 +22,6 @@
           <th>Ночь</th>
           <th>Сутки</th>
           <th>Изображение</th>
-          <th>Категория</th>
           <th>Язык</th>
 
           <th>&nbsp;</th>
@@ -41,7 +40,6 @@
           <td>{{ $row->room_price_night }}</td>
           <td>{{ $row->room_price_24 }}</td>
           <td>@if($row->room_photo != '')<img src="{{ asset('uploads/thumb') . '/'.  $row->room_photo }}">@endif</td>
-          <td>{{ isset($row->roomcategories->room_cat_title) ? $row->roomcategories->room_cat_title : '' }}</td>
           <td>{{ isset($row->language->lang_name) ? $row->language->lang_name : '' }}</td>
 
           <td>

@@ -1,6 +1,8 @@
 @extends('layouts.default')
 
 @section('meta_title', __('common.title'))
+@section('meta_description', __('common.description'))
+@section('meta_keywords', __('common.keywords'))
 @section('content')
 
 <section id="hero-area" class="hero-area overlay style2">
@@ -72,7 +74,7 @@
                 <div class="single-slider">
                   <div class="trip-head">
                     <a href="/rooms/{{ $value->room_slug }}">
-                      <img src="{{ asset('uploads') . '/'.  $value->room_photo }}" alt="{{ $value->room_title }}">
+                      <img src="{{ Image::url(asset('uploads') . '/'.  $value->room_photo,338,225,array('crop')) }}" alt="{{ $value->room_title }}" />
                     </a>
                   </div>
                   <div class="trip-details">
@@ -83,7 +85,7 @@
                     <div class="right">
                       <p>@lang('common.price')<br />
         								@if (! empty($value->room_price))
-        								<span >{{ $value->room_price }}</span>@lang('common.forHour')<br />
+        								<span>{{ $value->room_price }} <i class="fas fa-ruble-sign"></i></span>@lang('common.forHour')<br />
         								@endif
         							</p>
                     </div>

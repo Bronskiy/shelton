@@ -30,7 +30,15 @@
         {!! Form::text('food_slug', old('food_slug'), array('class'=>'form-control', 'id'=>'slug')) !!}
 
     </div>
-</div><div class="form-group">
+</div>
+<div class="form-group">
+    {!! Form::label('food_consist', 'Состав', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::text('food_consist', old('food_consist'), array('class'=>'form-control')) !!}
+
+    </div>
+</div>
+<div class="form-group">
     {!! Form::label('food_qty', 'Вес/Емкость/Количество', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('food_qty', old('food_qty'), array('class'=>'form-control')) !!}

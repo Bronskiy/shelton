@@ -15,37 +15,30 @@
 		</div>
 	</div>
 </div>
-
 <section id="top-destination" class="top-destination section">
 	<div class="container">
 		<div class="row">
 			@foreach ($RoomsData as $value)
 			<div class="col-lg-3 col-md-6 col-12">
-				<!-- Single Package -->
 				<div class="single-package">
 					<div class="trip-head">
 						<a href="/rooms/{{ $value->room_slug }}">
-							<img src="{{ asset('uploads') . '/'.  $value->room_photo }}" alt="{{ $value->room_title }}">
+							<img src="{{ Image::url(asset('uploads') . '/'.  $value->room_photo,338,225,array('crop')) }}" alt="{{ $value->room_title }}" />
 						</a>
 					</div>
 					<div class="trip-details">
 						<div class="left">
 							<h4><a href="/rooms/{{ $value->room_slug }}">{{ $value->room_title }}</a></h4>
-							<!--<p><i class="fa fa-clock-o"></i>3 Nights 4 Days</p>-->
 						</div>
 						<div class="right">
-							<p>За час<span>{{ $value->room_price }}</span></p>
+							<p>@lang('common.forHour')<span>{{ $value->room_price }} <i class="fas fa-ruble-sign"></i></span></p>
 						</div>
-						<a href="/rooms/{{ $value->room_slug }}" class="btn primary">Подробнее</a>
+						<a href="/rooms/{{ $value->room_slug }}" class="btn primary">@lang('common.readMore')</a>
 					</div>
 				</div>
-				<!--/ End Single Package -->
 			</div>
 			@endforeach
-
 		</div>
 	</div>
 </section>
-<!--/ End Tour Package -->
-
 @stop

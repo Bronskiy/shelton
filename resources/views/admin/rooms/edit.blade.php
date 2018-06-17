@@ -16,7 +16,7 @@
   </div>
 </div>
 
-{!! Form::model($rooms, array('files' => true, 'class' => 'form-horizontal', 'id' => 'form-with-validation', 'method' => 'PATCH', 'route' => array(config('quickadmin.route').'.rooms.update', $rooms->id))) !!}
+{!! Form::model($rooms, array('class' => 'form-horizontal', 'id' => 'form-with-validation', 'method' => 'PUT', 'route' => array(config('quickadmin.route').'.rooms.update', $rooms->id), 'files' => true,)) !!}
 
 <div class="form-group">
   {!! Form::label('room_title', 'Название*', array('class'=>'col-sm-2 control-label')) !!}
@@ -100,7 +100,7 @@
 <div class="form-group">
   {!! Form::label('roomcategories_id', 'Категория*', array('class'=>'col-sm-2 control-label')) !!}
   <div class="col-sm-10">
-    {!! Form::select('roomcategories_id', $roomcategories, old('roomcategories_id',$rooms->roomcategories_id), array('class'=>'form-control')) !!}
+    {!! Form::select('roomcategories[]', $roomcategories, old('roomcategories') ? old('roomcategories') : $rooms->roomcategories->pluck('id')->toArray(), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-roomcategories' ]) !!}
 
   </div>
 </div>

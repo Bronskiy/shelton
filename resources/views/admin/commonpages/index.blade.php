@@ -17,9 +17,9 @@
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
                         <th>Заголовок</th>
+                        <th>URL</th>
 <th>SEO Заголовок</th>
 <th>SEO Ключевые слова</th>
-<th>URL</th>
 <th>Язык</th>
 
                         <th>&nbsp;</th>
@@ -33,9 +33,9 @@
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
                             <td>{{ $row->common_title }}</td>
+                            <td>{{ $row->common_slug }}</td>
 <td>{{ $row->common_seo_title }}</td>
 <td>{{ $row->common_seo_keywords }}</td>
-<td>{{ $row->common_slug }}</td>
 <td>{{ isset($row->language->lang_name) ? $row->language->lang_name : '' }}</td>
 
                             <td>

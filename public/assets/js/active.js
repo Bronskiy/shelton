@@ -1,10 +1,3 @@
-/* =====================================
-Template Name: TravelTrek
-Author Name: iThemer
-Author URI: http://ithemer.com/
-Description: TravelTrek is a Travel Agency & Tour Booking HTML5 Template.
-Version:	1.0
-========================================*/
 /*=======================================
 [Start Activation Code]
 =========================================
@@ -32,6 +25,14 @@ Version:	1.0
 (function($) {
     "use strict";
      $(document).on('ready', function() {
+
+       /*====================================
+       01. Comment Form
+       ======================================*/
+       $("#open-comment-form").click(function(){
+           $(".comments-form form").toggle();
+       });
+
 
 		/*====================================
 		01. Sticky Header JS
@@ -255,9 +256,21 @@ Version:	1.0
 		16.  Date Picker JS
 		======================================*/
 		$( function() {
+      $( "#datetimepicker" ).datetimepicker({
+        locale: 'ru',
+        stepping: 30,
+        sideBySide: true
+      });
+      $( "#datetimepicker2" ).datetimepicker({
+        locale: 'ru',
+        stepping: 30,
+        sideBySide: true
+      });
+      /*
 			$( "#datepicker" ).datepicker();
 			$( "#datepicker2" ).datepicker();
-		} );
+      */
+		});
 
 		/*=====================================
 		17. Scroll Up

@@ -20,18 +20,19 @@ class CommonData extends Model {
     protected $dates = ['deleted_at'];
 
     protected $table    = 'commondata';
-    
+
     protected $fillable = [
           'common_phone_1',
           'common_phone_2',
           'common_address',
+          'common_contact_details',
           'common_map',
           'common_email',
           'common_ganalytics',
           'common_metrika',
           'language_id'
     ];
-    
+
 
     public static function boot()
     {
@@ -39,14 +40,14 @@ class CommonData extends Model {
 
         CommonData::observe(new UserActionsObserver);
     }
-    
+
     public function language()
     {
         return $this->hasOne('App\Language', 'id', 'language_id');
     }
 
 
-    
-    
-    
+
+
+
 }

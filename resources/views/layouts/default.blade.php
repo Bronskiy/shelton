@@ -28,9 +28,12 @@
   <script src="/assets/js/popper.min.js"></script>
   <!-- Bootstrap JS -->
   <script src="/assets/js/bootstrap.min.js"></script>
-  <!-- Bootstrap Datepicker JS -->
+  <!-- Bootstrap Datepicker JS
   <script src="/assets/js/bootstrap-datepicker.js"></script>
+  -->
   <!-- Steller JS -->
+  <script src="/assets/datetime/moment-with-locales.min.js"></script>
+  <script src="/assets/datetime/tempusdominus-bootstrap-4.min.js"></script>
   <script src="/assets/js/steller.js"></script>
   <!-- Fancybox JS -->
   <script src="/assets/js/facnybox.min.js"></script>

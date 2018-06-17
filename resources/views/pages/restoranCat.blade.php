@@ -1,8 +1,8 @@
 @extends('layouts.default')
 
-@section('meta_title', __('common.restoran'))
+@section('meta_title', $Category->food_cat_title)
 @section('content')
-<div class="breadcrumbs overlay" data-stellar-background-ratio="0.7">
+<div class="breadcrumbs overlay" data-stellar-background-ratio="0.7" style="background-image:url('{{ asset('uploads') . '/'.  $Category->food_cat_photo }}');">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -22,21 +22,21 @@
 				<div class="row">
 					@foreach ($RestoranData as $value)
 					<div class="col-lg-6 col-12">
-						<div class="single-package">
-							<div class="trip-head">
+						<div class="single-food">
+							<div class="food-head">
 								@if ($value->food_image)
-								<img src="{{ asset('uploads') . '/'.  $value->food_image }}" alt="{{ $value->food_title }}">
+								<img src="{{ Image::url(asset('uploads') . '/'.  $value->food_image,300,300,array('crop')) }}" />
 								@else
-								<img src="https://via.placeholder.com/261x163?text={{ $value->food_title }}" alt="{{ $value->food_title }}">
+								<img src="https://via.placeholder.com/300x300?text={{ $value->food_title }}" alt="{{ $value->food_title }}">
 								@endif
 							</div>
-							<div class="trip-details">
+							<div class="food-details">
 								<div class="left">
-									<h4>{{ $value->food_title }}</h4>
-									<p><i class="fa fa-clock-o"></i>{{ $value->food_cat_slug }}</p>
+									<h5>{{ $value->food_title }}</h5>
+									<p>{{ $value->food_consist }}</p>
 								</div>
 								<div class="right">
-									<p>{{ $value->food_qty }}<span>{{ $value->food_price }}</span></p>
+									<p>{{ $value->food_qty }} <span class="price">{{ $value->food_price }} <i class="fas fa-ruble-sign"></i></span></p>
 								</div>
 							</div>
 						</div>

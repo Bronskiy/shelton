@@ -1,31 +1,28 @@
 @extends('layouts.default')
 
-@section('meta_title', __('common.title'))
+@section('meta_title', __('common.guestBook'))
 @section('content')
-<!-- Blog Grid -->
+<div class="breadcrumbs overlay" data-stellar-background-ratio="0.7" style="background-image:url('/assets/img/background-rooms.jpg');">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<ul class="list">
+					<li><a href="/">@lang('common.home')</a></li>
+					<li><a href="#">@lang('common.guestBook')</a></li>
+				</ul>
+				<h2>@lang('common.guestBook')</h2>
+			</div>
+		</div>
+	</div>
+</div>
 <section id="blog-area" class="blog-area archive classic single section">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-8 col-md-8 offset-lg-2 offset-md-2 col-12">
+			<div class="col-lg-8 col-12">
 				<div class="row">
-					<div class="col-12">
-						<div class="single-blog">
-							<div class="author-details">
-								<div class="row">
-									<div class="col-md-12 col-12">
-										<div class="author-content">
-											<h2>@lang('common.guestBook')</h2>
-											<p>Urna litora, consequat eros cras. Suscipit facilisi cursus aenean vel sagittis et. Malesuada ut massa, risus tincidunt. Non ultrices accumsan laoreet eget commodo risus.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="col-12">
 						<div class="blog-comments">
 							<div class="comments-body">
-								<!-- Single Comments -->
 								@foreach ($CommentData as $value)
 								<div class="single-comments">
 									<div class="main">
@@ -34,7 +31,6 @@
 											<p>{{ $value->comment_text }}</p>
 										</div>
 									</div>
-
 									@if ($value->comment_admin)
 									<div class="comment-list">
 										<div class="body">
@@ -45,25 +41,42 @@
 									@endif
 								</div>
 								@endforeach
-
-
-								<!--/ End Single Comments -->
 							</div>
 						</div>
 					</div>
-
 					<div class="col-12">
 						<div class="comments-form">
-							<h2>@lang('common.leaveAMessage')</h2>
+							<h2 id="open-comment-form">@lang('common.leaveAMessage')</h2>
 							@include('includes.comment-form')
 						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-12">
+						{{ $CommentData->links() }}
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-			 {{ $CommentData->links() }}
+			<div class="col-lg-4 col-12">
+				<div class="sidebar-main">
+					<div class="single-widget other-trips">
+						<a href="#open-comment-form" class="btn">Оставить сообщение</a>
+					</div>
+					<div class="single-widget categories">
+						<h2>@lang('common.roomsCategories')</h2>
+						@include('includes.roomsCatWidget')
+					</div>
+					<div class="single-widget other-trips">
+						<h2>@lang('common.lookAtRooms')</h2>
+						<div class="trips">
+							@include('includes.roomsWidget')
+						</div>
+					</div>
+					<div class="single-widget categories">
+						<h2>@lang('common.restoran')</h2>
+						@include('includes.foodCatWidget')
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

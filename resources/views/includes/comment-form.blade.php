@@ -1,5 +1,10 @@
 {!! Form::open(array('url' => 'guestbook/store', 'id' => 'form-with-validation', 'class' => 'form')) !!}
 <input type="hidden" name="language_id" value="{{ $lang_id }}">
+@if(isset($RoomsData))
+<input type="hidden" name="rooms_id" value="{{ $RoomsData->id }}">
+@else
+<input type="hidden" name="rooms_id" value="0">
+@endif
 <div class="row">
   <div class="col-md-6">
     <div class="form-group">

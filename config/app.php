@@ -160,6 +160,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laraveldaily\Quickadmin\QuickadminServiceProvider::class,
+        Folklore\Image\ImageServiceProvider::class,
 
     ],
 
@@ -209,6 +210,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Image' => Folklore\Image\Facades\Image::class,
+        'InterventionImage' => Intervention\Image\Facades\Image::class,
 
     ],
 

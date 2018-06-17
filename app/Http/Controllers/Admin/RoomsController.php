@@ -26,7 +26,7 @@ class RoomsController extends Controller {
 	*/
 	public function index(Request $request)
 	{
-		$rooms = Rooms::with("roomcategories")->with("language")->get();
+		$rooms = Rooms::with("language")->get();
 
 		return view('admin.rooms.index', compact('rooms'));
 	}
@@ -38,7 +38,7 @@ class RoomsController extends Controller {
 	*/
 	public function create()
 	{
-		$roomcategories = RoomCategories::pluck("room_cat_title", "id")->prepend('Выбрать', 0);
+		$roomcategories = RoomCategories::pluck("room_cat_title", "id");
 		$language = Language::pluck("lang_name", "id")->prepend('Выбрать', 0);
 
 
@@ -54,14 +54,22 @@ class RoomsController extends Controller {
 	{
 		$request = $this->saveFiles($request);
 		$rooms = Rooms::create($request->all());
-
+	// $rooms->roomcategories()->attach($request->roomcategories_id);
+		$rooms->roomcategories()->sync(array_filter((array)$request->input('roomcategories')));
+		/*
+		foreach ($request->input('roomcategories_id', []) as $index => $id) {
+			$rooms->roomcategories()->attach($id);
+		}
+*/
 		foreach ($request->input('room_gallery_id', []) as $index => $id) {
 			$model          = config('laravel-medialibrary.media_model');
 			$file           = $model::find($id);
 			$file->model_id = $rooms->id;
 			$file->save();
 		}
+	//	$rooms->roomcategories()->save($roomcategory);
 
+	//$rooms->save();
 		return redirect()->route(config('quickadmin.route').'.rooms.index');
 	}
 
@@ -87,11 +95,12 @@ class RoomsController extends Controller {
 	*
 	* @param  int  $id
 	*/
-	public function update($id, UpdateRoomsRequest $request)
+	public function update(UpdateRoomsRequest $request, $id)
 	{
 		$request = $this->saveFiles($request);
 		$rooms = Rooms::findOrFail($id);
 		$rooms->update($request->all());
+		$rooms->roomcategories()->sync(array_filter((array)$request->input('roomcategories')));
 
 		$media = [];
 		foreach ($request->input('room_gallery_id', []) as $index => $id) {

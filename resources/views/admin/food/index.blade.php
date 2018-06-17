@@ -17,7 +17,7 @@
             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
           </th>
           <th>Название</th>
-          <th>URL</th>
+          <th>Состав</th>
           <th>Вес/Емкость/Количество</th>
           <th>Стоимость</th>
           <th>Изображение</th>
@@ -35,7 +35,7 @@
             {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
           </td>
           <td>{{ $row->food_title }}</td>
-          <td>{{ $row->food_slug }}</td>
+          <td>{{ $row->food_consist }}</td>
           <td>{{ $row->food_qty }}</td>
           <td>{{ $row->food_price }}</td>
           <td>@if($row->food_image != '')<img src="{{ asset('uploads/thumb') . '/'.  $row->food_image }}">@endif</td>

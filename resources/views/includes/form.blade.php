@@ -8,6 +8,7 @@
   <div class="col-md-6">
     <div class="form-group">
       {!! Form::text('contact_phone', old('contact_phone'), array('class'=>'form-control','required' => '','placeholder' => __('common.yourphone'))) !!}
+      {!! Form::text('contact_required_email', old('contact_required_email'), array('class'=>'form-control-required-email')) !!}
     </div>
   </div>
   <div class="col-md-12">

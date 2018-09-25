@@ -57,6 +57,13 @@
     </div>
 </div>
 <div class="form-group">
+    {!! Form::label('room_min_order', 'Минимальный заказ', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::text('room_min_order', old('room_min_order'), array('class'=>'form-control')) !!}
+
+    </div>
+</div>
+<div class="form-group">
     {!! Form::label('room_photo', 'Главное изображение', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::file('room_photo') !!}

@@ -10,7 +10,7 @@
 					<li><a href="/">@lang('common.home')</a></li>
 					<li><a href="/rooms">@lang('common.rooms')</a></li>
 				</ul>
-				<h2>{{ $Category->room_cat_title }}</h2>
+				<h1>{{ $Category->room_cat_title }}</h1>
 			</div>
 		</div>
 	</div>

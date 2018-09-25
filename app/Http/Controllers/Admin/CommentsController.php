@@ -38,9 +38,10 @@ class CommentsController extends Controller {
 	{
 	    $rooms = Rooms::pluck("room_title", "id")->prepend('Выбрать', 0);
 			$language = Language::pluck("lang_name", "id")->prepend('Выбрать', 0);
+			$enum_comment_confirmation = Comments::$enum_comment_confirmation;
 
 
-	    return view('admin.comments.create', compact("rooms", "language"));
+	    return view('admin.comments.create', compact("rooms", "language", "enum_comment_confirmation"));
 	}
 
 	/**
@@ -67,9 +68,9 @@ class CommentsController extends Controller {
 		$comments = Comments::find($id);
 	    $rooms = Rooms::pluck("room_title", "id")->prepend('Выбрать', 0);
 			$language = Language::pluck("lang_name", "id")->prepend('Выбрать', 0);
+			$enum_comment_confirmation = Comments::$enum_comment_confirmation;
 
-
-		return view('admin.comments.edit', compact('comments', "rooms", "language"));
+		return view('admin.comments.edit', compact('comments', "rooms", "enum_comment_confirmation", "language"));
 	}
 
 	/**

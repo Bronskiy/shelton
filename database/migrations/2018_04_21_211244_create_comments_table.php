@@ -22,6 +22,7 @@ class CreateCommentsTable extends Migration {
             $table->text("comment_text")->nullable();
             $table->text("comment_admin")->nullable();
             $table->integer("rooms_id")->references("id")->on("rooms")->nullable();
+            $table->enum('comment_confirmation', array('1', '2'))->nullable();
             $table->integer("language_id")->references("id")->on("language");
             $table->timestamps();
             $table->softDeletes();

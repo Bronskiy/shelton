@@ -66,5 +66,12 @@
     {!! $value->common_ganalytics !!}
     {!! $value->common_metrika !!}
   @endforeach
+  <!-- RedConnect -->
+<script id="rhlpscrtg" type="text/javascript" charset="utf-8" async="async"
+src="https://web.redhelper.ru/service/main.js?c=shelton1"></script>
+<div style="display: none"><a class="rc-copyright"
+href="http://redconnect.ru">Обратный звонок RedConnect</a></div>
+<!--/RedConnect -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZ24X7W" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </body>
 </html>

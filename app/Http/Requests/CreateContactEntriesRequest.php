@@ -24,6 +24,7 @@ class CreateContactEntriesRequest extends FormRequest {
 	public function rules()
 	{
 		return [
+			'g-recaptcha-response' => 'required|captcha',
             
 		];
 	}

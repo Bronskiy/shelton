@@ -36,7 +36,8 @@ $('.datetimepicker').datetimepicker({
 $('#datatable').dataTable( {
   "language": {
     "url": "{{ trans('quickadmin::strings.datatable_url_language') }}"
-  }
+  },
+  "aaSorting": [[ 1, "desc" ]]
 });
 
 function makeSlug(str)

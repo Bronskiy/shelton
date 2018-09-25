@@ -62,12 +62,17 @@ class RoomsController extends Controller
   public function roomOrder(Request $request)
   {
     $lang = $request->route()->getAction()['lang_id'];
-    $orderHours = (strtotime($request->order_user_departure) - strtotime($request->order_user_arrival))/3600;
+    $timeArrival = strtotime($request->order_user_arrival);
+    $timeDeparture = strtotime($request->order_user_departure);
+    $orderHours = ($timeDeparture - $timeArrival)/3600;
     if ($orderHours < 1) {
       $data['orderHours'] = 1;
       //min 1 hour
       $data['orderMessage'] = 1;
-    } elseif ($orderHours > 23) {
+    } elseif ($orderHours < 23 && date('H', $timeArrival) == 23 && date('H', $timeDeparture) == 9) {
+      $data['orderNight'] = true;
+      $data['orderHours'] = round($orderHours);
+    } elseif ($orderHours >= 23) {
       $data['orderHours'] = 23;
       //max 23 hours
       $data['orderMessage'] = 23;
@@ -75,7 +80,7 @@ class RoomsController extends Controller
       $data['orderHours'] = round($orderHours);
     }
     $data['orderRoom'] = Rooms::where('id', $request->rooms_id)
-    ->where('language_id', $lang)
+    //->where('language_id', $lang)
     ->first();
     if ($data['orderRoom'] == '') {
       return redirect('/rooms');

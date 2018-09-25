@@ -1,2 +1,4 @@
-User-agent: *
-Disallow:
+User-Agent: *
+
+Host: https://shelton.ru/
+Sitemap: https://shelton.ru/sitemap.xml

@@ -10,14 +10,12 @@
       @if (! empty($room->room_price))
       <span class="price">{{ $room->room_price }} <i class="fas fa-ruble-sign"></i></span><span> / @lang('common.forHour')</span><br />
       @endif
-      <!--
       @if (! empty($room->room_price_night))
       <span class="price">{{ $room->room_price_night }} <i class="fas fa-ruble-sign"></i></span><span> / @lang('common.forNight')</span><br />
       @endif
       @if (! empty($room->room_price_24))
       <span class="price">{{ $room->room_price_24 }} <i class="fas fa-ruble-sign"></i></span><span> / @lang('common.for24')</span>
       @endif
-    -->
     </p>
   </div>
 </div>

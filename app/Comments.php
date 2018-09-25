@@ -27,6 +27,7 @@ class Comments extends Model {
           'comment_email',
           'comment_text',
           'comment_admin',
+          'comment_confirmation',
           'rooms_id',
           'language_id'
     ];
@@ -38,6 +39,7 @@ class Comments extends Model {
 
         Comments::observe(new UserActionsObserver);
     }
+    public static $enum_comment_confirmation = ["1" => "Не проверено", "2" => "Опубликовано"];
 
     public function rooms()
     {

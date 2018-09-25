@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\CreateContactEntriesRequest;
 use App\Http\Requests\CreateCommentsRequest;
 use App\Http\Requests\CreateOrdersRequest;
@@ -52,25 +53,30 @@ class OnePageController extends Controller
 
   public function contactsStore(CreateContactEntriesRequest $request)
   {
-    $message = $request->all();
-    ContactEntries::create($message);
+    if ($request->contact_required_email != '') {
+    }
+    else {
 
-    $telegram_message =
-    "Имя: " . $request->contact_name . " \n" .
-    "Телефон: " . $request->contact_phone . " \n" .
-    "Email: " . $request->contact_email . " \n" .
-    "Сообщение: " . $request->contact_text . " \n";
+      $message = $request->all();
+      ContactEntries::create($message);
 
-    $mail_message =
-    "Имя: " . $request->contact_name . "<br />" .
-    "Телефон: " . $request->contact_phone . "<br />" .
-    "Email: " . $request->contact_email . "<br />" .
-    "Сообщение: " . $request->contact_text . "<br />";
+      $telegram_message =
+      "Имя: " . $request->contact_name . " \n" .
+      "Телефон: " . $request->contact_phone . " \n" .
+      "Email: " . $request->contact_email . " \n" .
+      "Сообщение: " . $request->contact_text . " \n";
 
-    $this->alarmerbotsend('-167221471', $telegram_message);
-    $users = User::where('role_id', 2)->get();
-    foreach ($users as $user) {
-      $user->notify(new NewMessage($mail_message));
+      $mail_message =
+      "Имя: " . $request->contact_name . "<br />" .
+      "Телефон: " . $request->contact_phone . "<br />" .
+      "Email: " . $request->contact_email . "<br />" .
+      "Сообщение: " . $request->contact_text . "<br />";
+
+      $this->alarmerbotsend('-167221471', $telegram_message);
+      $users = User::where('role_id', 2)->get();
+      foreach ($users as $user) {
+        $user->notify(new NewMessage($mail_message));
+      }
     }
 
     return redirect('/thank-you');

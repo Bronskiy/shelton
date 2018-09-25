@@ -48,7 +48,15 @@
         {!! Form::textarea('comment_admin', old('comment_admin',$comments->comment_admin), array('class'=>'form-control')) !!}
 
     </div>
-</div><div class="form-group">
+</div>
+<div class="form-group">
+    {!! Form::label('comment_confirmation', 'Модерация', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+      {!! Form::select('comment_confirmation', $enum_comment_confirmation, old('comment_confirmation'), ['class'=>'form-control']) !!}
+    </div>
+</div>
+
+<div class="form-group">
     {!! Form::label('rooms_id', 'Номер', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::select('rooms_id', $rooms, old('rooms_id',$comments->rooms_id), array('class'=>'form-control')) !!}

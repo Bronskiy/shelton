@@ -14,6 +14,7 @@ class GuestBookController extends Controller
     $lang = $request->route()->getAction()['lang_id'];
     $data['lang_id'] = $lang;
     $data['CommentData'] = Comments::where('language_id', $lang)
+    ->where('comment_confirmation', '2')
     ->orderBy('created_at', 'desc')
     ->paginate(15);
     return view('pages.guestBook', $data);

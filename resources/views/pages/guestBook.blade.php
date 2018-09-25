@@ -8,9 +8,9 @@
 			<div class="col-12">
 				<ul class="list">
 					<li><a href="/">@lang('common.home')</a></li>
-					<li><a href="#">@lang('common.guestBook')</a></li>
+					<li><a href="/guestbook">@lang('common.guestBook')</a></li>
 				</ul>
-				<h2>@lang('common.guestBook')</h2>
+				<h1>@lang('common.guestBook')</h1>
 			</div>
 		</div>
 	</div>

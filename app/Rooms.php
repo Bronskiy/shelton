@@ -30,6 +30,7 @@ class Rooms extends Model implements HasMedia
           'room_price',
           'room_price_night',
           'room_price_24',
+          'room_min_order',
           'room_photo',
           'room_gallery',
           'language_id'

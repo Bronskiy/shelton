@@ -58,6 +58,13 @@
   </div>
 </div>
 <div class="form-group">
+  {!! Form::label('room_min_order', 'Минимальный заказ', array('class'=>'col-sm-2 control-label')) !!}
+  <div class="col-sm-10">
+    {!! Form::text('room_min_order', old('room_min_order',$rooms->room_min_order), array('class'=>'form-control')) !!}
+
+  </div>
+</div>
+<div class="form-group">
   {!! Form::label('room_photo', 'Главное изображение', array('class'=>'col-sm-2 control-label')) !!}
   <div class="col-sm-10">
     {!! Form::file('room_photo') !!}
@@ -84,7 +91,7 @@
         <p class="form-group">
           <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
           <a href="#" class="btn btn-xs btn-danger remove-file">Remove</a>
-          <input type="hidden" name="room_gallery[]" value="{{ $media->id }}">
+          <input type="hidden" name="room_gallery_id[]" value="{{ $media->id }}">
         </p>
         @endforeach
       </div>

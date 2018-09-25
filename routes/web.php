@@ -58,10 +58,12 @@ Route::group(
 			'lang_id' => $lang['id'],
 			'uses' => 'RoomsController@getData'
 		]);
-		Route::post('/order', [
+
+		Route::any('/order', [
 			'lang_id' => $lang['id'],
 			'uses' => 'RoomsController@roomOrder'
 			]);
+
 		Route::get('/page/{name?}', [
 			'lang_id' => $lang['id'],
 			'uses' => 'OnePageController@getPageData'
@@ -78,10 +80,12 @@ Route::group(
 		Route::post('/spatie/media/remove', 'Admin\SpatieMediaController@destroy')->name('media.remove');
 	});
 
-	Route::get('/test', 'OnePageController@test');
-
+	//Route::get('/test', 'OnePageController@test');
+	Route::get('/sitemap', 'SitemapController@index');
+	
 	Route::post('/contacts/store', 'OnePageController@contactsStore');
 	Route::post('/guestbook/store', 'OnePageController@commentsStore');
+	//Route::post('/order', 'RoomsController@roomOrder');
 	Route::post('/order/store', 'OnePageController@orderStore');
 
 	Route::get('shelt1ogin', [

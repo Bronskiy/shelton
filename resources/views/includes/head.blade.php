@@ -17,6 +17,8 @@
 <meta name="msapplication-TileColor" content="#b91d47">
 <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
+<meta name="google-site-verification" content="AUKNcQMdkXtGRcIVCrXAfB6By-yA8omClfcl59l2yUk" />
+<meta name="yandex-verification" content="69f0f532f009744d" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Tinos:400,700&amp;subset=cyrillic">
 <script>
 FontAwesomeConfig = { searchPseudoElements: true };
@@ -39,3 +41,10 @@ FontAwesomeConfig = { searchPseudoElements: true };
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WZ24X7W');</script>
+<!-- End Google Tag Manager -->

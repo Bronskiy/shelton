@@ -6,8 +6,11 @@
   </ul>
   <div class="clearfix"></div>
   <div class="payment-logo">
+    {{--
     <img src="/assets/img/payment/MasterCard.png" alt="">
     <img src="/assets/img/payment/Visa.png" alt="">
     <img src="/assets/img/payment/PayKeeper.png" alt="">
+    --}}
+    <img src="/assets/img/payment/payments.png" alt="">
   </div>
 </div>

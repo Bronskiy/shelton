@@ -10,7 +10,7 @@
 					<li><a href="/">@lang('common.home')</a></li>
 					<li><a href="/rooms">@lang('common.rooms')</a></li>
 				</ul>
-				<h2>{{ $RoomsData->room_title }}</h2>
+				<h1>{{ $RoomsData->room_title }}</h1>
 			</div>
 		</div>
 	</div>
@@ -36,14 +36,12 @@
 								@if (! empty($RoomsData->room_price))
 								<span class="price">{{ $RoomsData->room_price }} <i class="fas fa-ruble-sign"></i></span><span> / @lang('common.forHour')</span><br />
 								@endif
-								<!--
 								@if (! empty($RoomsData->room_price_night))
 								<span class="price">{{ $RoomsData->room_price_night }} <i class="fas fa-ruble-sign"></i></span><span> / @lang('common.forNight')</span><br />
 								@endif
 								@if (! empty($RoomsData->room_price_24))
 								<span class="price">{{ $RoomsData->room_price_24 }} <i class="fas fa-ruble-sign"></i></span><span> / @lang('common.for24')</span>
 								@endif
-							-->
 							</p>
 						</div>
 						<div>{!! $RoomsData->room_text !!}</div>
@@ -93,7 +91,13 @@
 				<div class="sidebar-main">
 					<div class="single-widget booking">
 						<h2>@lang('common.booking')</h2>
-						{!! Form::open(array('url' => 'order', 'class' => 'form')) !!}
+						@if (! empty($RoomsData->room_min_order))
+						<div class="alert alert-info" role="alert">
+							<h6 class="alert-heading">@lang('common.minOrderQty')</h6>
+							<p><strong>{{ $RoomsData->room_min_order }}</strong></p>
+						</div>
+						@endif
+						{!! Form::open(array('action' => 'RoomsController@roomOrder', 'class' => 'form')) !!}
 						<input type="hidden" name="rooms_id" value="{{ $RoomsData->id }}">
 						<div class="form-group date">
 							<h4>@lang('common.arrival')</h4>

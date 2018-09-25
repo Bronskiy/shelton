@@ -20,10 +20,10 @@ class CreateCommonDataTable extends Migration {
             $table->string("common_phone_2")->nullable();
             $table->string("common_address")->nullable();
             $table->text("common_contact_details")->nullable();
-            $table->string("common_map")->nullable();
+            $table->text("common_map")->nullable();
             $table->string("common_email")->nullable();
-            $table->string("common_ganalytics")->nullable();
-            $table->string("common_metrika")->nullable();
+            $table->text("common_ganalytics")->nullable();
+            $table->text("common_metrika")->nullable();
             $table->integer("language_id")->references("id")->on("language");
             $table->timestamps();
             $table->softDeletes();

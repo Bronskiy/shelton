@@ -25,6 +25,8 @@
 
               @if($orderHours == 23 && (!empty($orderRoom->room_price_24)))
               <p><span>{{ $orderRoom->room_price_24 }} <i class="fas fa-ruble-sign"></i></span><span> / @lang('common.for24')</span></p>
+              @elseif (isset($orderNight) && $orderRoom->room_price_night != '')
+              <p><span>{{ $orderRoom->room_price_night }} <i class="fas fa-ruble-sign"></i></span><span> / @lang('common.forNight')</span></p>
               @else
               <p><span>{{ $orderRoom->room_price }} <i class="fas fa-ruble-sign"></i></span><span> / @lang('common.forHour')</span></p>
               @endif
@@ -44,6 +46,8 @@
             <span>@lang('common.total'):</span>
             @if($orderHours == 23 && $orderRoom->room_price_24 != '')
             <strong>{{ $orderRoom->room_price_24 }} <i class="fas fa-ruble-sign"></i></strong>
+            @elseif (isset($orderNight) && $orderRoom->room_price_night != '')
+            <strong>{{ $orderRoom->room_price_night }} <i class="fas fa-ruble-sign"></i></strong>
             @else
             <strong>{{ $orderHours * $orderRoom->room_price }} <i class="fas fa-ruble-sign"></i></strong>
             @endif

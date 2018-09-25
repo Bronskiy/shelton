@@ -8,9 +8,9 @@
 			<div class="col-12">
 				<ul class="list">
 					<li><a href="/">@lang('common.home')</a></li>
-					<li><a href="package-4-column">@lang('common.restoran')</a></li>
+					<li><a href="/restoran">@lang('common.restoran')</a></li>
 				</ul>
-				<h2>@lang('common.restoranDesc')</h2>
+				<h1>@lang('common.restoranDesc')</h1>
 			</div>
 		</div>
 	</div>

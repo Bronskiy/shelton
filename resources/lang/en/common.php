@@ -44,6 +44,7 @@ return [
   'ContactUs' => 'Contact Us',
   'ContactDetails' => 'Company Details',
   'contacts' => 'Contacts',
+  'nightTariff' => 'Night Tariff',
   'yourname' => 'Name',
   'youremail' => 'Email',
   'yourphone' => 'Phone',

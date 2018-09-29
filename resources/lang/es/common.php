@@ -44,6 +44,7 @@ return [
   'ContactUs' => 'Contáctanos',
   'ContactDetails' => 'Detalles de la compañía',
   'contacts' => 'Contáctanos',
+  'nightTariff' => 'Tarifa nocturna',
   'yourname' => 'Nombre',
   'youremail' => 'Email',
   'yourphone' => 'Número de teléfono',

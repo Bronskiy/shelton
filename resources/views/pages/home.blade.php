@@ -8,6 +8,9 @@
 <section id="hero-area" class="hero-area overlay style2">
   <div class="slider-active">
     @foreach ($slider as $value)
+    @if ($value->slider_link)
+    <a href="{{ $value->slider_link }}">
+    @endif
     <div class="single-slider overlay"
     @if ($value->slider_image)
     style="background-image:url('{{ asset('uploads') . '/'.  $value->slider_image }}')"
@@ -28,6 +31,9 @@
       </div>
     </div>
   </div>
+  @if ($value->slider_link)
+  </a>
+  @endif
   @endforeach
 </div>
 </section>

@@ -8,7 +8,7 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Slider extends Model {
+class NightTariff extends Model {
 
     use SoftDeletes;
 
@@ -19,15 +19,17 @@ class Slider extends Model {
     */
     protected $dates = ['deleted_at'];
 
-    protected $table    = 'slider';
+    protected $table    = 'nighttariff';
 
     protected $fillable = [
-          'slider_title',
-          'slider_text',
-          'slider_image',
-          'slider_order',
+          'night_tariff_title',
+          'night_tariff_slug',
+          'night_tariff_image',
+          'night_tariff_text',
           'language_id',
-          'slider_link'
+          'night_tariff_seo_title',
+          'night_tariff_seo_keywords',
+          'night_tariff_seo_description'
     ];
 
 
@@ -35,16 +37,13 @@ class Slider extends Model {
     {
         parent::boot();
 
-        Slider::observe(new UserActionsObserver);
+        NightTariff::observe(new UserActionsObserver);
     }
+
 
     public function language()
     {
         return $this->hasOne('App\Language', 'id', 'language_id');
     }
-
-
-
-
 
 }

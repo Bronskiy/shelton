@@ -41,12 +41,20 @@
     </div>
 </div>
 <div class="form-group">
+    {!! Form::label('slider_link', 'Ссылка', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::text('slider_link', old('slider_link',$slider->slider_link), array('class'=>'form-control')) !!}
+
+    </div>
+</div>
+<div class="form-group">
     {!! Form::label('slider_order', 'Порядок', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('slider_order', old('slider_order',$slider->slider_order), array('class'=>'form-control')) !!}
 
     </div>
-</div><div class="form-group">
+</div>
+<div class="form-group">
     {!! Form::label('language_id', 'Язык*', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::select('language_id', $language, old('language_id',$slider->language_id), array('class'=>'form-control')) !!}

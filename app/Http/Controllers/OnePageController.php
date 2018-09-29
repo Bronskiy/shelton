@@ -11,6 +11,7 @@ use App\Notifications\NewMessage;
 use App\User;
 use App\ContactEntries;
 use App\CommonPages;
+use App\NightTariff;
 use App\Comments;
 use App\Orders;
 
@@ -48,6 +49,22 @@ class OnePageController extends Controller
         abort(404);
       };
       return view('pages.commonPage',$data);
+    }
+  }
+
+  public function getLandingData(Request $request, $name = "default")
+  {
+    $lang = $request->route()->getAction()['lang_id'];
+    if ($name == "default") {
+      abort(404);
+    } else {
+      $data['LandingData'] = NightTariff::where('night_tariff_slug', $name)->where('language_id', $lang)->first();
+      $data['lang_id'] = $lang;
+      if (empty($data['LandingData'])) {
+        abort(404);
+      };
+
+      return view('pages.landingPage',$data);
     }
   }
 

@@ -64,6 +64,7 @@
               <li><a href="/restoran">@lang('common.restoran')</a></li>
               <li><a href="/guestbook">@lang('common.guestBook')</a></li>
               <li><a href="/contacts">@lang('common.contacts')</a></li>
+              <li><a href="/landing/night-tariff">@lang('common.nightTariff')</a></li>
             </ul>
           </nav>
         </div>

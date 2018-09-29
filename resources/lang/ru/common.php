@@ -44,6 +44,7 @@ return [
   'ContactUs' => 'Написать нам',
   'ContactDetails' => 'Реквизиты',
   'contacts' => 'Контакты',
+  'nightTariff' => 'Ночной Тариф',
   'yourname' => 'Имя',
   'youremail' => 'Email',
   'yourphone' => 'Телефон',

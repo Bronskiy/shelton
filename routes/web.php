@@ -68,6 +68,12 @@ Route::group(
 			'lang_id' => $lang['id'],
 			'uses' => 'OnePageController@getPageData'
 		]);
+
+		Route::get('/landing/{name?}', [
+			'lang_id' => $lang['id'],
+			'uses' => 'OnePageController@getLandingData'
+		]);
+
 		Route::get('/category/{name?}', [
 			'lang_id' => $lang['id'],
 			'uses' => 'RoomsController@getCategoryData'
@@ -82,7 +88,7 @@ Route::group(
 
 	//Route::get('/test', 'OnePageController@test');
 	Route::get('/sitemap', 'SitemapController@index');
-	
+
 	Route::post('/contacts/store', 'OnePageController@contactsStore');
 	Route::post('/guestbook/store', 'OnePageController@commentsStore');
 	//Route::post('/order', 'RoomsController@roomOrder');
